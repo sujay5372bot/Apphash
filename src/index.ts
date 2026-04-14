@@ -6,6 +6,19 @@ import { bot } from "./core/bot";
 import { development, production } from "./utils/launch";
 import { toMarkdownV2 } from "./utils/textManipulation";
 import { getAllPidHandler, updatePidHandler } from "./libs/handler/pidHandler";
+import express from "express";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Bot is running");
+});
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
 
 bot.use(commands);
 
