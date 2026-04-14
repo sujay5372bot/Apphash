@@ -54,10 +54,10 @@ const callback_query = async (ctx: Context): Promise<void> => {
 
                 for (const item of forwards) {
 
-                    const newValue = !item.hideSender
+                    const newValue = !(item as any).hideSender;
 
                     // update forward with toggle value
-                    (item as any).hideSender
+                    (item as any).hideSender = newValue;
 
                 }
 
