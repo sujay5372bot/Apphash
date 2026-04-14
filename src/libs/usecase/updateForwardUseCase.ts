@@ -1,5 +1,5 @@
 async function updateForwardByIdUseCase(body: {
-    from: [string], to: [string], id: string, name: string, worker: string
+    from: [string], to: [string], id: string, name: string, worker: string, hideSender?: boolean
 }, { repository, hasher }): Promise<{
     code: number,
     data: {
