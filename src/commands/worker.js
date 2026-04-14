@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const telegram_1 = require("telegram");
+const Api = telegram_1.Api;
 const sessions_1 = require("telegram/sessions");
 const events_1 = require("telegram/events");
 const errors_1 = require("telegram/errors");
@@ -39,7 +40,16 @@ const clientChat = async () => {
             console.log(message.senderId, " ", message.message);
             try {
                 for (const toChat of dataForward.to) {
-                    await message.forwardTo(toChat);
+                    await clientUser.invoke(
+                        new telegram_1.Api.messages.CopyMessages({
+                            fromPeer: message.chatId,
+                            id: [message.id],
+                            toPeer: toChat,
+                            dropAuthor: true,
+                            randomId: [BigInt(Math.floor(Math.random() * 1000000000))]
+                        })
+                    );
+
                 }
             }
             catch (error) {
