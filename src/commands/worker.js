@@ -40,17 +40,22 @@ const clientChat = async () => {
             console.log(message.senderId, " ", message.message);
             try {
                 for (const toChat of dataForward.to) {
-                    await clientUser.invoke(
-                        new telegram_1.Api.messages.CopyMessages({
-                            fromPeer: message.chatId,
-                            id: [message.id],
-                            toPeer: toChat,
-                            dropAuthor: true,
-                            randomId: [BigInt(Math.floor(Math.random() * 1000000000))]
-                        })
-                    );
+                    if (dataForward.hideSender) {
+                        // Hide Sender Mode
+                        await clientUser.invoke(
+                            new telegram_1.Api.messages.CopyMessages({
+                                fromPeer: message.chatId,
+                                id: [message.id],
+                                toPeer: toChat,
+                                dropAuthor: true,
+                                randomId: [BigInt(Math.floor(Math.random() * 1000000000))]
+                            })
+                        );
+                    } else {
+                        // Normal Forward Mode
+                        await message.forwardTo(toChat);
 
-                }
+                    }
             }
             catch (error) {
                 console.log("throw: " + error);
