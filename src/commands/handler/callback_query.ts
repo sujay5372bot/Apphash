@@ -46,6 +46,34 @@ const callback_query = async (ctx: Context): Promise<void> => {
                 parse_mode: 'MarkdownV2'
             })
             break;
+        case 'toggle_hide_sender':
+
+            const forwards = await getAllForwardById(`${ctx.from?.id}`)
+
+            if (forwards && forwards.length > 0) {
+
+                for (const item of forwards) {
+
+                    const newValue = !item.hideSender
+
+                    // update forward with toggle value
+                    item.hideSender = newValue
+
+                }
+
+                await ctx.answerCallbackQuery({
+                    text: "🙈 Hide Sender toggled"
+                })
+
+            } else {
+
+                await ctx.answerCallbackQuery({
+                    text: "❌ No forward found"
+                })
+
+            }
+
+break;
         case 'restartAllTask':
             await ctx.reply("🔄 Please wait Restarting....")
             await startTaskById(ctx)
