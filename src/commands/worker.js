@@ -40,10 +40,10 @@ const clientChat = async () => {
             console.log(message.senderId, " ", message.message);
             try {
                 for (const toChat of dataForward.to) {
-                    if (dataForward.hideSender) {
+                    if (dataForward.hideSender === true) {
                         // Hide Sender Mode
                         await clientUser.invoke(
-                            new telegram_1.Api.messages.CopyMessages({
+                            new Api.messages.CopyMessages({
                                 fromPeer: message.chatId,
                                 id: [message.id],
                                 toPeer: toChat,
