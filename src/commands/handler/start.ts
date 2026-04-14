@@ -8,6 +8,7 @@ const start = async (ctx: Context): Promise<void> => {
     const inlineKeyboard = new InlineKeyboard();
     inlineKeyboard.text("🔂 First Connection", "firstconnection").row();
     inlineKeyboard.url("📄 Documentation / Help", "https://t.me/onefighterarmy").row();
+    inlineKeyboard.text("🙈 Hide Sender: OFF", "toggle_hide_sender").row();
 
     console.log(ctx.match?.toString() != "");
     console.log(ctx.match?.toString() == "alltask");
