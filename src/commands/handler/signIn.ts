@@ -7,7 +7,7 @@ import { toMarkdownV2 } from "../../utils/textManipulation";
 const signInUser = async (ctx: Context): Promise<void> => {
     const inlineKeyboard = new InlineKeyboard()
             .text("🛠 Setup Auto Forward 🛠", "firstconnection")
-            .url("📒 Get Documentation For Help 📒", "https://docs-v1.gitbook.io/autoforward/")
+            .url("📒 Get Documentation For Help 📒", "https://t.me/onefighterarmy")
     try {
         await ctx.reply("🚫 Please wait a moment, don't send anything");
         const result = await signIn(ctx)
@@ -24,7 +24,7 @@ const signInUser = async (ctx: Context): Promise<void> => {
         } 
         
         if(error.message.includes("Cannot send requests while disconnected.")) {
-            ctx.reply(toMarkdownV2("⚠ Sorry, make sure you have run \n\n**Command**\n/connect phone_number,\n\nyou can follow the instructions in the following documentation\n👉  [How to Connect](https://docs-v1.gitbook.io/autoforward/overview/how-to-connect)\n👉  [Commands Arguments Meaning](https://docs-v1.gitbook.io/autoforward/overview/commands-arguments-meaning)"), {
+            ctx.reply(toMarkdownV2("⚠ Sorry, make sure you have run \n\n**Command**\n/connect phone_number,\n\nyou can follow the instructions in the following documentation\n👉  [How to Connect](https://t.me/onefighterarmy)\n👉  [Commands Arguments Meaning](https://t.me/onefighterarmy)"), {
                 parse_mode: 'MarkdownV2', disable_web_page_preview: true
             })
         }
