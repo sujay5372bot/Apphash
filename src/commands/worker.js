@@ -54,8 +54,8 @@ const clientChat = async () => {
                     } else {
                         // Normal Forward Mode
                         await message.forwardTo(toChat);
-
                     }
+                }
             }
             catch (error) {
                 console.log("throw: " + error);
