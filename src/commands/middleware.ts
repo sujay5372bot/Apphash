@@ -400,9 +400,9 @@ async function startObserve(context: Context, dataForward: object) {
             pid: serverProcess.pid,
         };
         // STOP OLD WORKER
-        await stopWorkerByPID(getPidById.data.pid);
-        console.log(dataForward["name"]);
-
+        if (getPidById?.data?.pid) {
+            await stopWorkerByPID(getPidById.data.pid);
+        }
         if (getPidById.code == 404) {
             await addPidHandler(dataPidTmp);
         } else {
