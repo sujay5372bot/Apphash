@@ -7,7 +7,7 @@ import { toMarkdownV2 } from "../../utils/textManipulation";
 const start = async (ctx: Context): Promise<void> => {
     const inlineKeyboard = new InlineKeyboard();
     inlineKeyboard.text("🔂 First Connection", "firstconnection").row();
-    inlineKeyboard.url("📄 Documentation / Help", "https://docs-v1.gitbook.io/autoforward/").row();
+    inlineKeyboard.url("📄 Documentation / Help", "https://t.me/onefighterarmy").row();
 
     console.log(ctx.match?.toString() != "");
     console.log(ctx.match?.toString() == "alltask");
