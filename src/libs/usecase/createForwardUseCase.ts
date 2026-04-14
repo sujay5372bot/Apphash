@@ -16,7 +16,8 @@ async function createForwardUseCase(body, { repository, hasher }): Promise<{
             name: body.name,
             from: body.from,
             to: body.to,
-            worker: body.worker
+            worker: body.worker,
+            hideSender: false
         },
         message: `${body.name}, has been registerd`
     }
