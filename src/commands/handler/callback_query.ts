@@ -57,7 +57,7 @@ const callback_query = async (ctx: Context): Promise<void> => {
                     const newValue = !item.hideSender
 
                     // update forward with toggle value
-                    item.hideSender = newValue
+                    (item as any).hideSender
 
                 }
 
