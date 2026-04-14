@@ -14,7 +14,7 @@ const connect = async (ctx: Context): Promise<void> => {
         await ctx.reply("⚠ Please wait....");
         const checkSession = await login(ctx)
         if (checkSession?.data != undefined) {
-            await ctx.reply("You Are Already Registered 👌\n\n👉 How to get ID ? [Get info channel, groups, user](https://docs-v1.gitbook.io/autoforward-en/overview/get-information-channels-groups-your-account)\n👉 Started with new task? [How to setup new task](https://docs-v1.gitbook.io/autoforward-en/overview/how-to-setup-new-task-auto-forward)", {
+            await ctx.reply("You Are Already Registered 👌\n\n👉 How to get ID ? [Get info channel, groups, user](https://t.me/onefighterarmy)\n👉 Started with new task? [How to setup new task](https://t.me/onefighterarmy)", {
                 reply_to_message_id: ctx.msg?.message_id, parse_mode: 'Markdown', disable_web_page_preview: true
             });
             return
