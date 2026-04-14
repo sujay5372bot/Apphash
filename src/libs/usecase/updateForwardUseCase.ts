@@ -3,7 +3,7 @@ async function updateForwardByIdUseCase(body: {
 }, { repository, hasher }): Promise<{
     code: number,
     data: {
-        from: [string], to: [string], id: string, name: string, worker: string,
+        from: [string], to: [string], id: string, name: string, worker: string, hideSender?: boolean,
         idDocument: string
     },
     message: string
