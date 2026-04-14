@@ -1,7 +1,7 @@
 async function createForwardUseCase(body, { repository, hasher }): Promise<{
     code: number,
     data: {
-        from: [], to: [], id: string, name: string, worker: string
+        from: [], to: [], id: string, name: string, worker: string, hideSender: false
     },
     message: string
 }> {
